@@ -17,24 +17,30 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router, private activeRouter: ActivatedRoute) { }
 
   public onChartClick(event) {
-    console.log(event);
-    console.log(event.data.name);
-      this.router.navigateByUrl(event.data.webData.path, {
+      console.log(event.data.webData.path);
+      this.router.navigate([event.data.webData.path], {
+        queryParams: {mapName: event.data.webData.name, 
+        path: event.data.webData.path}
+         
+      });
+ /*     this.router.navigate(event.data.webData.path, {
         queryParams: {mapName: event.data.webData.path.name},
         
-      });
+      });*/
     
  //   this.router.navigateByUrl("/jiangsu");
   }
 
   ngOnInit() {
-
     this.http.get('assets/china.json').subscribe(geoJson =>{
       //    echarts.geoJson =
       //  this.get('map/china.json', function (chinaJson) {
           echarts.registerMap('China', geoJson);  
           
           this.regionOptions = {
+
+            layoutCenter: ['60%', '60%'],
+            layoutSize: 400,
             visualMap:{
               min: 0,
               max: 50,
@@ -63,7 +69,7 @@ export class HomeComponent implements OnInit {
                   }
                 
               },
-              zoom: 1.2,
+              zoom: 1.4,
               data: [
                 { name: '北京', value: 0, webData: {path: '/beijing',name: '北京'}},
                 { name: '天津', value: 0, webData: {path: '/tianjing',name: '天津'} },

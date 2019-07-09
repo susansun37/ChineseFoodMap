@@ -14,9 +14,8 @@ export class JiangsuComponent implements OnInit {
  
 //  regionOptions;
 option;
-  private jiangsuUrl = 'api/jiangsu';
 
-  constructor(/*private route: ActivatedRoute,*/
+  constructor(private route: ActivatedRoute,
               private location: Location,
               private http: HttpClient, private router: Router, private activeRouter: ActivatedRoute) { }
 
@@ -28,15 +27,26 @@ option;
 
   ngOnInit() {
     this.activeRouter.queryParams.subscribe((data) => {
-      console.log("Echarts data: "+this.router);
-
-      this.http.get('assets/province/jiangsu.json').subscribe(geoJson =>{
+      console.log(data);
+      console.log(data.path);
+ /* console.log("Echarts:"+this.activeRouter.queryParams.subscribe(params => {
+      params['mapName']}));*/
+      if (!data || !data.mapName){
+        return;
+      }
+      console.log(data.mapName);
+   //   this.http.get('assets/province/jiangsu.json').subscribe(geoJson =>{
+        this.http.get('assets/province'+data.path+'.json').subscribe(geoJson =>{
       //  console.log(echarts);
-        echarts.registerMap('jiangsu', geoJson);
+    //    echarts.registerMap('jiangsu', geoJson);
+   //     echarts.registerMap(data.path, geoJson);
       
         this.option = {
+
+          layoutCenter: ['60%', '60%'],
+          layoutSize: 400,
   
-       /*   visualMap:{
+          visualMap:{
             min: 0,
             max: 50,
             text: ['High', 'Low'],
@@ -45,16 +55,23 @@ option;
             inRange: {
               color: ['#ADCDEF', '#2171C1']
             }
-          },*/
+          },
+
+          grid:{
+            x:0,
+            y:0,
+            borderWidth: 1            
+           },
+
   
           series: [
             {
               type: 'map',
               // map: 'china',
   
-              mapType: '江苏',//consistent with what in registerMap
-         //     mapType: event.data.name;
-              roam: false,
+       //       mapType: 'jiangsu',//consistent with what in registerMap
+              mapType: data.mapName,
+      //        roam: false,
               itemStyle: {
                 normal: {
                   areaColor: '#AAD5EF',
@@ -66,7 +83,7 @@ option;
                 }
               
             },
-            zoom: 1.2,
+            zoom: 1.5,
             data: []
             }
           ]

@@ -6,8 +6,10 @@ import {HomeComponent} from './home/home.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'jiangsu', component:JiangsuComponent},
-  {path: 'home', component: HomeComponent}
+  {path: '', component:JiangsuComponent},
+  {path: 'home', component: HomeComponent},
+//  {path: 'xinjiang', component:JiangsuComponent},
+//  {path: 'zhejiang', component:JiangsuComponent}
   // {path: 'home', redirectTo: '', pathMatch: 'full', children: [
   //   {path: '', component: homecomponent},
   //   {path:':id', component: JiangsuComponent}

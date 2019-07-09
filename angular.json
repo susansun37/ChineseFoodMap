@@ -29,7 +29,41 @@
             "scripts": [
               "node_modules/echarts/dist/echarts.min.js",
               "src/assets/china.js",
-              "src/assets/province/jiangsu.js"
+              
+              "src/assets/province/anhui.js",
+              "src/assets/province/aomen.js",
+              "src/assets/province/beijing.js",
+              "src/assets/province/chongqing.js",
+              "src/assets/province/fujian.js",
+              "src/assets/province/gansu.js",
+              "src/assets/province/guangdong.js",
+              "src/assets/province/guizhou.js",
+              "src/assets/province/hainan.js",
+              "src/assets/province/hebei.js",
+              "src/assets/province/heilongjiang.js",
+              "src/assets/province/henan.js",
+              "src/assets/province/hubei.js",
+              "src/assets/province/hunan.js",
+              "src/assets/province/jiangsu.js",
+              "src/assets/province/jiangxi.js",
+              "src/assets/province/jilin.js",
+              "src/assets/province/liaoning.js",
+              "src/assets/province/neimenggu.js",
+              "src/assets/province/ningxia.js",
+              "src/assets/province/qinghai.js",
+              "src/assets/province/shandong.js",
+              "src/assets/province/shanghai.js",
+              "src/assets/province/shanxi.js",
+              "src/assets/province/sichuan.js",
+              "src/assets/province/taiwan.js",
+              "src/assets/province/tianjin.js",
+              "src/assets/province/xianggang.js",
+              "src/assets/province/xinjiang.js",
+              "src/assets/province/xizang.js",
+              "src/assets/province/yunnan.js",
+              "src/assets/province/zhejiang.js"
+
+
             
             ]
           },

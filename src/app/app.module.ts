@@ -18,8 +18,9 @@ import { HomeComponent } from './home/home.component';  //导入路由
 
 
 const appRoutes: Routes = [
-  {path: 'jiangsu', component: JiangsuComponent}
-  
+  // {path: 'jiangsu', component: JiangsuComponent},
+  // {path: 'xinjiang', component: JiangsuComponent}
+  {path: ':id', component: JiangsuComponent}
 ];
 
 @NgModule({
